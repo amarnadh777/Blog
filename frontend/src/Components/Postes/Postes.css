@@ -1,0 +1,48 @@
+.postes
+{
+    margin-top: 10%;
+    margin-left: 10%;
+}
+.postes-grid
+{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  width: 90%;
+  gap: 20px;
+}
+.postcard
+{   
+    width: 100%;
+    height: auto;
+    background-color: white;
+    margin-bottom: 10%;
+}
+.postcard-img > img
+{
+    width: 100%;
+    
+}
+.post-about
+{
+    display: flex;
+    flex-direction: auto;
+    align-items: center;
+    gap: 10px;
+}
+.post-text > p 
+{
+    font-weight: 600;
+}
+.post-authorname
+{
+    font-weight: 300;
+    
+}
+.post-date
+{
+    font-weight: 300;
+}
+.post-category
+{
+    color: #4B6BFB;
+}
