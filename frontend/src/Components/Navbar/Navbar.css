@@ -1,6 +1,6 @@
 .navbar
 {
-    width: 80%;
+    width: 90%;
     height: 2%;
 
     display: flex;
@@ -33,4 +33,26 @@
     position: absolute;
     right: 19%;
     top:3%;
+}
+.n-signup
+{
+    background-color: black;
+    width: 6em;
+    height: 3em;
+    border-radius: 20px;
+    color: white;
+}
+      
+.darkmode-n-signup
+{background-color: white;
+    color: black;
+    width: 6em;
+    height: 3em;
+    border-radius: 20px;
+  
+}
+.Link
+{
+    text-decoration: none;
+    
 }

@@ -1,0 +1,67 @@
+.register
+{
+    display: flex;
+    justify-content:center;
+    margin-top: 3%;
+
+}
+.register-box
+{
+    border: 1px solid gainsboro;
+    border-radius: 20px;
+    width: 80%;
+    height: 30em;
+    display: flex;
+   
+}
+.register-inputs
+{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+
+    margin: 0 auto;
+}
+.register-inputs input 
+{
+    height: 2.5em;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid gainsboro;
+
+}
+.register-inputs [type="file"]::file-selector-button {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.register-inputs label
+{
+    margin-top: 2%;
+}
+.register-inputs  button
+{
+    height: 3em;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid gainsboro;
+    margin-top: 2%;
+}
+.left
+{
+
+    width: 70%;
+}
+.right 
+{
+
+    width: 30%;
+}
+.right img
+{
+    background-size: cover;
+    max-width: 20em;
+}

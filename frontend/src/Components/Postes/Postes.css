@@ -6,7 +6,7 @@
 .postes-grid
 {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 30% 30% 30%;
   width: 90%;
   gap: 20px;
 }
@@ -16,17 +16,25 @@
     height: auto;
     background-color: white;
     margin-bottom: 10%;
-        
+    transition: ease;
+    
+    transition: all .5s ease-in-out;
+}
+.darkmode-postcard
+{
+    color: white;
+    background-color: #181A2A;
+
 }
 .postcard:hover
 {
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
-
+    transform: translate(0, -.4rem);
 }
 .postcard-img > img
 {
     width: 100%;
-    
+    min-height: 14em;
 }
 .post-about
 {
@@ -39,6 +47,10 @@
 {
     font-weight: 600;
 }
+.darkmode-post-text > p 
+{
+    color: white;
+}
 .post-authorname
 {
     font-weight: 300;
@@ -48,7 +60,26 @@
 {
     font-weight: 300;
 }
+.darkmode-post-authorname
+{
+color: white
+}
+.darkmode-post-date
+{
+    color: white
+}
 .post-category
 {
     color: #4B6BFB;
+}
+.Link
+{
+    text-decoration: none;
+    color: black;
+}
+.post-authorimg > img
+{
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
 }

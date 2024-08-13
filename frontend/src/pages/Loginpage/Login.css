@@ -1,0 +1,78 @@
+.login
+{
+    display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+   margin-top: 3%;
+}
+.loginbox
+{
+    border:  1px solid gainsboro;
+    width: 40%;
+    height: 25em;
+    border-radius: 20px;
+}
+.login-inputs
+{
+
+    display: flex;
+    
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+}
+.login-inputs > h4
+{
+    margin: 0 auto;
+    margin-top: 10%;
+    font-size: 1.5em;
+
+}
+.login-inputs input[type="text"]
+{
+ height: 3em;
+ border-radius: 10px;
+ outline: none;
+ border: 1px solid gainsboro;
+
+}
+.login-inputs input[type="password"]
+{
+ height: 3em;
+ border-radius: 10px;
+ outline: none;
+ border: 1px solid gainsboro;
+
+}
+.login-inputs button
+{
+height: 3.5em;
+border: none;
+outline: none;
+background-color: gainsboro;
+border-radius: 20px;
+margin-top: 5%;
+}
+.login-inputs label
+{
+    margin-top: 5%;
+}
+.login-second
+{
+    display: flex;
+    justify-content: space-around;
+    
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 1%;
+}
+.login-create > button
+{
+  background-color: white;
+  height: 3.5em;
+  margin-top: 5%;
+  width: 40em;
+  border: 1px solid black;
+  border-radius: 20px;
+}

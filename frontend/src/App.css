@@ -4,3 +4,12 @@
 {
   font-family: "Work Sans", sans-serif;
 }
+.darkmode
+{
+  background-color: #181A2A;
+  color: #FFFFFF;
+}
+.Link
+{
+  text-decoration: none;
+}

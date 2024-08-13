@@ -1,0 +1,27 @@
+.create-post-box
+{
+    width: 80%;
+    height: 20em;
+    border: 1px solid gainsboro;
+    margin: 0 auto;
+}
+.craete-post-inputs
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.craete-post-inputs input
+{
+    width: 90%;
+    margin: 0 auto;
+}
+.craete-post-inputs label
+{
+    margin-top: 2%;
+   margin-left: 5%;
+}
+.loading
+{
+  width: 400px;
+}
