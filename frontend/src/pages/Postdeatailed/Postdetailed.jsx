@@ -15,7 +15,7 @@ function Postdetailed() {
   
     return async() => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/post/getpostbyid/${postId}`)
+        const response = await axios.get(`https://test-ndv4.onrender.com/api/post/getpostbyid/${postId}`)
         setpost(response.data.data)
       } catch (error) {
         console.log(error)

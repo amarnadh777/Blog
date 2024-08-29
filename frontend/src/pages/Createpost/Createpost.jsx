@@ -5,25 +5,29 @@ import axios from 'axios'
 import LoadingScreen from 'react-loading-screen';
 import { PacmanLoader } from 'react-spinners';
 import { useNavigate } from 'react-router-dom';
+import Sidebar from '../../Components/Sidebar/Sidebar';
 function Createpost() {
   const [postTitle,setpostTitle] = useState('')
   const [postContent,setpostContent] = useState('')
   const [postImage,setpostImage] = useState()
-  const [Loading,setLoading] = useState(true)
+  const [Loading,setLoading] = useState(false)
   const navigate = useNavigate()
   const formdata = new FormData()
 formdata.append("postTitle",postTitle)
 formdata.append("postcontent",postContent)
 formdata.append("image",postImage)
 formdata.append("category","test")
-formdata.append("authorId",localStorage.getItem("authorId"))
+const authorInfo= JSON.parse(localStorage.getItem("authorInfo"))
+console.log("useri nfoofds",authorInfo.authorId)
+formdata.append("authorId",authorInfo.authorId)
 
 
   const createpost = async() =>
     {
-      const response =await axios.post("http://localhost:8000/api/post/createpost",formdata)
-      console.log(response.data);
       setLoading(true)
+      const response =await axios.post("http://localhost:8000/api/post/createpost",formdata)
+    
+      
       if(response.status == 200)
       {
          
@@ -36,8 +40,9 @@ formdata.append("authorId",localStorage.getItem("authorId"))
    
     <div>
       <Navbar></Navbar>
+      <Sidebar></Sidebar>
 
-     {Loading && <PacmanLoader color='yellow' size={100} ></PacmanLoader> }   
+     {Loading && <><PacmanLoader></PacmanLoader></> }   
         
         {!Loading &&    <div className="create-post">
 

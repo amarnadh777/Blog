@@ -7,7 +7,7 @@ import DarkmodeContext from '../../Utils/Mycontext'
 import { Link } from 'react-router-dom'
 
 function Navbar() {
- const {darkmode,setdarkmode,userLogined,setuserLogined }  = useContext(DarkmodeContext)
+ const {darkmode,setdarkmode,userLogined,setuserLogined ,opensidebar,setopenSidebar }  = useContext(DarkmodeContext)
 
  const setdark = () =>
  {
@@ -15,28 +15,27 @@ function Navbar() {
 
  }
  console.log("dark",darkmode);
- 
+ const sidebarOpen = () =>
+ {
+   return setopenSidebar(!opensidebar)
+ }
+ const auhtorInfo = JSON.parse(localStorage.getItem("authorInfo"))
+
   return (
     <div className='navbar'>
-        <div className="n-logo"><img src={logo} alt="" /></div>
+       <Link to="/"><div className="n-logo"><img src={logo} alt="" /></div></Link>   
         <div className="n-menus">
-            <ul>
-                <li>Home</li>
-             
-                 <li>Pages</li>
-                 <li>Contacts</li>
-            </ul>
+          
 
 
         </div>
-        <div className="n-searchbar">
-            <input type="text" placeholder='Search' />
-            <FontAwesomeIcon icon={faSearch} className='n-searchicon'></FontAwesomeIcon>
+        <div className="n-profilebar">
+    
 
           {!userLogined && ( <>  <Link  to="/login" className='Link'> <button className='n-login'>Loign</button></Link>   
          <Link to="/register" className='Link'>  <button className={darkmode ? `n-signup` :`darkmode-n-signup` }>SignUp</button></Link> </>) }
-          {userLogined && (<>   <h3>Hi user</h3> <Link className='Link' to="/createpost"> <FontAwesomeIcon icon={faPen}></FontAwesomeIcon> Write  </Link>  </>)  }
-            <button onClick={setdark}>Light mode  </button>
+          {userLogined && (<>   <h3 onClick={sidebarOpen} >Hi  { auhtorInfo.authorname && auhtorInfo.authorname}   </h3>   <img   src={auhtorInfo.profileurl} alt="" />  <Link className='Link' to="/createpost">  <FontAwesomeIcon icon={faPen}></FontAwesomeIcon> Write  </Link>  </>)  }
+            
         </div>
 
       

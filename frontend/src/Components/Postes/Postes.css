@@ -83,3 +83,17 @@ color: white
     height: 2em;
     border-radius: 50%;
 }
+@media only screen and (max-width: 850px) {
+
+    .postes-grid
+    {
+        grid-template-columns: 50%  50%;
+    }
+}
+@media only screen and (max-width: 500px) {
+
+    .postes-grid
+    {
+        grid-template-columns: 100%;
+    }
+}

@@ -35,9 +35,10 @@ function Register() {
      if(response.status == 200 )
      { 
          setuserLogined(true)
-         localStorage.setItem("username",response.data.username)
-         localStorage.setItem("authorId",response.data.authorId)
-        return navigate("/")
+         const authorInfo = JSON.stringify(response.data)
+         localStorage.setItem("authorInfo",authorInfo)
+         navigate("/")
+
      }
        
 

@@ -1,0 +1,18 @@
+.myprofile-bar
+{
+    display: flex;
+}
+.myprofile-bar > img
+{
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+}
+.myrofile-bar-button > button
+{
+    width: 10em;
+   height: 4em;
+   background-color: white;
+   border: 1px solid gainsboro;
+   border-radius: 30px;
+}

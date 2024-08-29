@@ -16,18 +16,7 @@
 
 }
 
-.n-searchbar input[type="text"]
-{
-    
-    border: none;
-    outline: none;
-    background-color: #E8E8E4;
-    padding-left: 1em;
-    border-radius: 5px;
-    margin-right: 10px;
-    width: 56%;
-    height: 3em;
-}
+
 .n-searchicon
 {
     position: absolute;
@@ -55,4 +44,23 @@
 {
     text-decoration: none;
     
+}
+.navbar-profileurl
+{
+    width: 3em;
+    border-radius: 50%;
+}
+.n-profilebar
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    width: 20em;
+}
+.n-profilebar > img
+{
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
 }
