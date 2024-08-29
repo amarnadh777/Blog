@@ -1,4 +1,32 @@
-const post = require("../models/post")
+const post = require("../models/post");
+const author = require("../models/author")
+const ShortUniqueId = require("short-unique-id")
+const { randomUUID} = new ShortUniqueId({length: 10})
+const cloudinary = require("cloudinary").v2
+const cloudinaryconfig = require("../utils/cloudinary")
+const createpost = async(req,res) =>
+    {
+        const {postTitle,postcontent,authorId} = req.body
+        try { 
+           
+            
+            const findauthor = await author.findOne({authorId:authorId})
+            
+            
+          const authorname = findauthor.authorname
+           const authorProfileurl = findauthor.profileurl
+            console.log(authorId,authorname,authorProfileurl)
+            const createdat = Date.now()
+            const postId =randomUUID()
+            const postimg = await cloudinary.uploader.upload(req.file.path)
+            const postimgurl = postimg.url
+            const newpost  = new post({postTitle:postTitle,postcontent:postcontent,postimgurl:postimgurl,postId:postId,category:"no categoty",createdat:createdat,authorId:authorId,authorname:authorname,authorProfileurl:authorProfileurl})
+            const respoose = await newpost.save()
+            res.status(200).json(respoose)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 const getallpost = async(req,res) =>
 {
     try {
@@ -11,4 +39,38 @@ const getallpost = async(req,res) =>
     }
     
 }
-module.exports = {getallpost}
+const getpostbyid = async(req,res) =>
+{
+    try {
+        const postId = req.params.id
+       const getpost = await post.findOne({postId:postId})
+        res.status(200).json({data:getpost})
+    } catch (error) {
+        
+    }
+}
+const getpostbyauthor = async(req,res) =>
+    {
+        try {
+            const authorId = req.params.id
+           const getpost = await post.find({authorId:authorId})
+         
+            res.status(200).json({data:getpost})
+        } catch (error) {
+            res.status(400).json({message:"some thing went wrong"})
+        }
+    }
+    const deletepostByid = async(req,res) =>
+        {
+            try {
+                const postId = req.params.id
+               const  deletepost = await post.deleteOne({postId:postId})
+             
+                res.status(200).json({message:"post deleted"})
+            } catch (error) {
+                res.status(400).json({message:"some thing went wrong"})
+            }
+        }
+        
+    
+module.exports = {getallpost,getpostbyid,createpost,getpostbyauthor,deletepostByid}
