@@ -96,4 +96,10 @@ color: white
     {
         grid-template-columns: 100%;
     }
+    .postcard-img > img
+{
+    width: 90%;
+    max-height: 7em;
+}
+
 }

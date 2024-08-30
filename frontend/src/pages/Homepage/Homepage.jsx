@@ -5,6 +5,7 @@ import Postes from '../../Components/Postes/Postes'
 import axios from  "axios"
 import Sidebar from '../../Components/Sidebar/Sidebar'
 import DarkmodeContext from '../../Utils/Mycontext'
+import Loading from '../../Components/Loading/Loading'
 function Homepage() {
   const {setuserLogined} = useContext(DarkmodeContext)
   const [postes,setpostes] = useState([])
@@ -54,7 +55,7 @@ function Homepage() {
        {/* <Header></Header>
         */}
        <Postes data={postes}></Postes>
-       {loading && <h1> loadingg........... </h1>}
+       {loading && <Loading></Loading>}
        {error && <h1>404 server not responding</h1>}
 
 </div>

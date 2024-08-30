@@ -11,6 +11,7 @@ import Createpost from './pages/Createpost/Createpost';
 import Sidebar from './Components/Sidebar/Sidebar';
 import Myprofile from './pages/Myprofile/Myprofile';
 import Mypostes from './pages/Mypostes/Mypostes';
+import Loading from './Components/Loading/Loading';
 
 function App() {
 
