@@ -74,8 +74,12 @@ const getpostbyauthor = async (req, res) => {
 };
 const editpostByid = async (req, res) => {
   try {
-    const {postId,postTitle} = req.body
-    const editpost = await post.findOneAndUpdate({ postId: postId },{postTitle:postTitle});
+  
+    
+    const {postId,postTitle,postcontent} = req.body
+    const postimg = await cloudinary.uploader.upload(req.file.path);
+    const postimgurl = postimg.url;
+    const editpost = await post.findOneAndUpdate({ postId: postId },{postTitle:postTitle,postcontent:postcontent,postimgurl:postimgurl});
 
     res.status(200).json({ message: "post edited" });
   } catch (error) {

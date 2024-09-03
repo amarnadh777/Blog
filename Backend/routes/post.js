@@ -18,7 +18,7 @@ router.post("/createpost", upload.single("image"), createpost);
 router.get("/getallpost", getallpost);
 router.get("/getpostbyid/:id", getpostbyid);
 router.get("/getpostbyauthor/:id", getpostbyauthor);
-router.put("/editpostbyid", editpostByid);
+router.put("/editpostbyid",upload.single("image"), editpostByid);
 
 router.get("/deletepostbyid/:id", deletepostByid);
 router.get("/getpostbycategory", getpostbycategory);
