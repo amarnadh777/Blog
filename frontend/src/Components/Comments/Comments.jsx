@@ -38,7 +38,7 @@ function Comments() {
   return (
     <div>
       <div className="comment">
-        {console.log("🤘🤘", context)}
+        {console.log("🤘🤘🎻📻🎶🎙🎧🎹🎷🎹", context)}
         {!context.userLogined && <h3>Login to write comment</h3>}
         <h4>Comments {`(${comment.length})`} </h4>
 
