@@ -14,7 +14,7 @@ function Comments() {
   useEffect(() => {
     return async () => {
       const response = await axios.get(
-        `http://192.168.1.3:8000/api/post/getpostcomment/${params.postId}`
+        `https://test-ndv4.onrender.com/api/post/getpostcomment/${params.postId}`
       );
       setcomment(response.data.data);
     };
