@@ -17,7 +17,8 @@ function Postes({ data }) {
   const deletepost = async (e) => {
     try {
       const response = await axios.get(
-        `http://192.168.1.3:8000/api/post/deletepostbyid/${e.target.value}`
+
+        `https://test-ndv4.onrender.com/api/post//deletepostbyid/${e.target.value}`
       );
       window.location.reload();
     } catch (error) {}

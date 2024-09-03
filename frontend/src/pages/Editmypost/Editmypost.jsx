@@ -29,8 +29,8 @@ function Editmypost() {
     {
         try {  
             const data = {postTitle:"postTitle",postId:params.postId}
-        
-          const response =  await axios.put(`http://192.168.1.3:8000/api/post/editpostbyid`,data)
+            
+          const response =  await axios.put(`https://test-ndv4.onrender.com/api/post/editpostbyid`,data)
          if(response.status == 200 )
          {
             navigate(`/mypost/${store.authorDetails.authorId}`)
