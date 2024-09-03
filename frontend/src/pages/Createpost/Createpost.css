@@ -11,6 +11,11 @@
     flex-direction: column;
     justify-content: center;
 }
+.selection 
+{
+    width: 90%;
+    margin: 0 auto;
+}
 .craete-post-inputs input
 {
     width: 90%;

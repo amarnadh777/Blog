@@ -34,7 +34,7 @@
 .postcard-img > img
 {
     width: 100%;
-    min-height: 14em;
+    height: 14em;
 }
 .post-about
 {
@@ -83,6 +83,31 @@ color: white
     height: 2em;
     border-radius: 50%;
 }
+.p-btn
+{
+    
+    display: flex;
+    margin-top: 8%;
+    margin-left: 10%;
+    margin-bottom: 2%;
+}
+.delete-post-btn
+{
+    height: 3em;
+    width: 8em;
+  background-color: black;
+  color: white;
+  border: none;
+}
+.edit-post-btn
+{
+    margin-left: 10%;
+    height: 3em;
+    width: 8em;
+    background-color: black;
+    color: white;
+    border: none;
+}
 @media only screen and (max-width: 850px) {
 
     .postes-grid
@@ -91,15 +116,44 @@ color: white
     }
 }
 @media only screen and (max-width: 500px) {
-
+.postcard
+{
+ max-height: 30em;
+ width: 95%;
+overflow: scroll;
+ border: 1px solid gainsboro;
+ border-radius: 10px;
+ margin-bottom: 10px;
+}
     .postes-grid
     {
         grid-template-columns: 100%;
+        margin-left: -5%;
+        
     }
     .postcard-img > img
 {
-    width: 90%;
-    max-height: 7em;
+    width: 100%;
+
+    max-height: 15em;
+ border-top-left-radius: 10px;
+ border-top-right-radius: 10px;
+
 }
+.postes-grid
+{
+    width: 100%;
+
+    
+}
+.post-category
+{
+    margin-left: 10%;
+}
+.post-text{
+    margin-left: 10%;
+}
+
+
 
 }

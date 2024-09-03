@@ -11,12 +11,14 @@ function Createpost() {
   const [postContent,setpostContent] = useState('')
   const [postImage,setpostImage] = useState()
   const [Loading,setLoading] = useState(false)
+  const [category,setCategory] = useState('')
+
   const navigate = useNavigate()
   const formdata = new FormData()
 formdata.append("postTitle",postTitle)
 formdata.append("postcontent",postContent)
 formdata.append("image",postImage)
-formdata.append("category","test")
+formdata.append("category",category)
 const authorInfo= JSON.parse(localStorage.getItem("authorInfo"))
 console.log("useri nfoofds",authorInfo.authorId)
 formdata.append("authorId",authorInfo.authorId)
@@ -25,7 +27,7 @@ formdata.append("authorId",authorInfo.authorId)
   const createpost = async() =>
     {
       setLoading(true)
-      const response =await axios.post("http://localhost:8000/api/post/createpost",formdata)
+      const response =await axios.post("https://test-ndv4.onrender.com/api/post/createpost",formdata)
     
       
       if(response.status == 200)
@@ -50,6 +52,15 @@ formdata.append("authorId",authorInfo.authorId)
       <div className="craete-post-inputs">
        <label htmlFor="">Add post title</label>
        <input type="text"  onChange={(e) => {setpostTitle(e.target.value)}}/>
+       <label htmlFor="">Add post category</label>
+       <select className='selection' name="" id="" onChange={(e) => {setCategory(e.target.value)}}>
+        <option value="Science">Science</option>
+        <option value="Health">Health</option>
+        <option value="Politics">Politcs</option>
+
+
+       </select>
+    
        <label htmlFor="">Add post content</label>
        <input type="text"  onChange={(e) => {setpostContent(e.target.value)}}/>
        <label htmlFor="">Add post image</label>

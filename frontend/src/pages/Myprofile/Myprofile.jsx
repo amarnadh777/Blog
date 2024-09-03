@@ -4,6 +4,8 @@ import "./Myprofile.css"
 import amar from "./amarnadh.jpeg"
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import Loading from '../../Components/Loading/Loading'
+import Sidebar from '../../Components/Sidebar/Sidebar'
 
 function Myprofile() {
 const [responseData, setresponseData] = useState({}) 
@@ -11,7 +13,8 @@ const [edit, setedit] = useState(false)
 const [username,setusername] = useState('')
 const [authorname,setauthorname] = useState('')
 const [password,setpassword] = useState('')
-
+const [error,seterror] = useState("")
+const [loading,setloading] = useState(false)
 const {authorId} = useParams()
 
 useEffect(() => {
@@ -19,14 +22,18 @@ useEffect(() => {
 
   return async() => {
     try {
-  const response =  await axios.get(`http://localhost:8000/api/author/myprofile/${authorId}`)
+      setloading(true)
+  const response =  await axios.get(`https://test-ndv4.onrender.com/api/author/myprofile/${authorId}`)
   setresponseData(response.data)
- 
+ if(response.data)
+ {
+  setloading(false)
+ }
   
 
         
     } catch (error) {
-        
+        setloading(false)
     }
   }
 }, [])
@@ -36,8 +43,9 @@ const editprofile = async(e) =>
     e.preventDefault()
     try {
       const data = {authorId:authorId,username:username}
-      const response = await axios.post("http://localhost:8000/api/author/editprofile",data)
+      const response = await axios.post("https://test-ndv4.onrender.com/api/author/editprofile",data)
       console.log(response);
+      
       
       
     } catch (error) {
@@ -51,7 +59,10 @@ const editprofile = async(e) =>
 
     <div>
     <Navbar></Navbar>
-    <div className="myprofile">
+    <Sidebar></Sidebar>
+    { loading && <Loading></Loading>}
+          {!loading &&    
+             <div className="myprofile">
       <div className="myprofile-bar">
         <img src={responseData.profileurl} alt="No profile image found" />
         <div className="myprofile-bar-right">
@@ -85,6 +96,7 @@ const editprofile = async(e) =>
       }
     
     </div>
+    }
       
     </div>
   )

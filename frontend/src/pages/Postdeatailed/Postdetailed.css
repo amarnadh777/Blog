@@ -1,7 +1,7 @@
 .d-category
 {
     background-color: #4B6BFB;
-    width: 13%;
+    max-width: 13%;
     padding: .5em;
     border-radius: 5px;
     color: white;
@@ -19,9 +19,40 @@
     gap: 10px;
     align-items: center;
 }
-
+.d-authorimg > img{
+    width:3em;
+    height: 3em;
+    border-radius: 50%;
+}
 .d-postimg > img
 {
 width: 100%;
 height: 24em;
+}
+@media only screen and (max-width: 850px) {
+    .d-postimg > img
+    {
+    width: 100%;
+    height: 12em;
+    }
+    
+}
+@media only screen and (max-width: 500px) {
+    .d-category
+    {
+        max-width: 30%;
+    }
+  
+    .d-postimg > img
+    {
+    width: 100%;
+    height: 12em;
+    }
+   
+    .d-details
+    {
+        width: 90%;
+    } 
+   
+
 }

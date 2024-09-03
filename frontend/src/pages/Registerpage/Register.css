@@ -65,3 +65,28 @@
     background-size: cover;
     max-width: 20em;
 }
+
+@media only screen and (max-width: 850px) {
+
+   
+}
+@media only screen and (max-width: 500px) {
+.register
+{
+    margin-top: 20%;
+}
+
+    .left
+{
+width: 100%;
+}
+.left > h3
+{
+    margin-left: 10%;
+} 
+   .right
+   {
+    display: none;
+   }
+
+}

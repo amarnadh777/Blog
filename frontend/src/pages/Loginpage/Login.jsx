@@ -1,37 +1,52 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Login.css";
 import { Form, Link, useNavigate } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import axios from "axios";
 import Sidebar from "../../Components/Sidebar/Sidebar";
+import Loading from "../../Components/Loading/Loading";
+import { useDispatch } from "react-redux";
+import authorLogin from "../../Redux/actions";
+import DarkmodeContext from "../../Utils/Mycontext";
 function Login() {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const {setAuthorDetails} = useContext(DarkmodeContext)
   const [username,setusername] = useState('')
   const [password,setpassword] = useState('')
-  const [errorMessage,seterrorMessage] = useState('')
- 
+
+  const [error,seterror] = useState("")
+  const [loading,setloading] = useState(false)
   const login = async(e) =>
   {
     e.preventDefault()
      const data = {username:username,password:password}
      
     try {
-      const response = await axios.post("http://localhost:8000/api/author/login",data)
+      setloading(true)
+      const response = await axios.post("https://test-ndv4.onrender.com/api/author/login",data)
       console.log(response)
       if(response.status == 200)
       { 
-    
-      }    const authorInfo = JSON.stringify(response.data)
+        setloading(false)
+        
+       
+        const authorInfo = JSON.stringify(response.data)
         localStorage.setItem("authorInfo",authorInfo)
         navigate("/")
-     
+         
+         
+      
+      }    
+   
       
     } catch (error) {
+      setloading(false)
       console.log(error);
       
-      if(error.response.status == 401)
+      if(error.response == 401)
       {
-        seterrorMessage("username or password incorrect")
+        seterror("username or password incorrect")
         
       }
 
@@ -40,7 +55,7 @@ function Login() {
     
   }
 
-  console.log("error message",errorMessage)
+  console.log("error message",error)
   
         
   return (
@@ -48,7 +63,7 @@ function Login() {
     <div>
       <Navbar></Navbar>
       {/* <Sidebar></Sidebar> */}
-    
+    {loading && <Loading></Loading>}
 
       <div className="login">
         <div className="loginbox">
@@ -67,8 +82,9 @@ function Login() {
             <input type="password" name="password" autoComplete="on" onChange={(e) => { setpassword(e.target.value)}}></input>
             
             <button onClick={login}>Log in </button>
-           
+           <p>{error}</p>
             <p>
+              
               <Link>Forgot password</Link>
             </p>
           </div>

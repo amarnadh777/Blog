@@ -1,0 +1,82 @@
+
+.comment
+{
+ width: 60%;
+margin: 0 auto;
+
+}
+.comment-profile > img
+{
+    width: 4em;
+    
+    height: 4em;
+    border-radius: 50%;
+   
+}
+.creat-comment
+{
+    display: flex;
+    align-items: center;
+    
+
+   
+ 
+}
+.comment-input > input
+{
+ 
+ width: 100%;
+ margin-left: 2%;
+}
+.comment > button
+{
+    width: 10em;
+    height: 3em;
+    background-color: black;
+    color: wheat;
+    margin-top: 2%;
+    margin-left: 10%;
+    border: none;
+    border-radius: 10px;
+}
+.commeter-details
+{
+    display: flex;
+    align-items: center;
+    
+}
+.commeter-details > h6
+{
+margin-left: 2%;
+}
+.comment-bar{
+    margin-top: 5%;
+    border: 1px solid  gainsboro;
+    padding: 0px;
+}
+.commenter-profile > img
+{
+   border-radius: 50%;
+   width: 3em;
+   height: 3em;
+   margin-right: 10px;
+}
+.commentes
+{
+    display: flex;
+    flex-direction: column;
+}
+@media only screen and (max-width: 850px) {
+    
+    
+}
+@media only screen and (max-width: 500px) {
+
+    .comment
+    {
+     width: 80%;
+    margin: 0 auto;
+    
+    }
+   
+}

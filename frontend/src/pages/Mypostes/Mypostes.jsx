@@ -3,11 +3,15 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Postes from '../../Components/Postes/Postes'
 import Navbar from '../../Components/Navbar/Navbar'
+import Loading from '../../Components/Loading/Loading'
+import Sidebar from '../../Components/Sidebar/Sidebar'
 
 
 function Mypostes() {
     const {authorId} = useParams()
     const [postes, setpostes] = useState([])
+    const [error,seterror] = useState("")
+const [loading,setloading] = useState(false)
     useEffect(() => {
       
     
@@ -16,10 +20,15 @@ function Mypostes() {
         const getMypostes = async() =>
             {
                 try {
-                    const response = await axios.get(`http://localhost:8000/api/post/getpostbyauthor/${authorId}`)
+                  setloading(true)
+                    const response = await axios.get(`https://test-ndv4.onrender.com/api/post/getpostbyauthor/${authorId}`)
+                    if(response.data.data)
+                    {
+                      setloading(false)
+                    }
                     setpostes(response.data.data)
                 } catch (error) {
-                    
+                    setloading(false)
                 }
             }
       getMypostes()
@@ -28,9 +37,10 @@ function Mypostes() {
   return (
     <div>
         <Navbar></Navbar>
+        <Sidebar></Sidebar>
       <h1>My postes</h1>
-      
-       <Postes data={postes}></Postes>
+      {loading && <Loading></Loading>}
+    { !loading && <Postes data={postes}></Postes>}
          
     </div>
   )

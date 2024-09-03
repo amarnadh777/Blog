@@ -84,18 +84,21 @@ const getAuthorbyid = async (req, res) => {
   } catch (error) {}
 };
 const editAuthor = async (req, res) => {
-  const { authorId, username,authoname,password } = req.body;
- 
+  const { authorId, username, authoname, password } = req.body;
 
   try {
-    
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(password, salt);
     const profileimage = await cloudinary.uploader.upload(req.file.path);
-    console.log(profileimage.url)
+    console.log(profileimage.url);
     const findauthor = await author.findOneAndUpdate(
       { authorId: authorId },
-      { username: username ,authoname:authoname,password:hashPassword,profileurl:profileimage.url}
+      {
+        username: username,
+        authoname: authoname,
+        password: hashPassword,
+        profileurl: profileimage.url,
+      }
     );
     if (!findauthor) {
       res.json({ message: "enter a valid authorid" });
@@ -108,8 +111,7 @@ const tester = async (req, res) => {
   try {
     //  const test = await author.findOne({authorId:"XbhxHfouLz"})
 
-    const newrest = await r.create({title:"ttttt"})
- 
+    const newrest = await r.create({ title: "ttttt" });
 
     res.json({ message: "sonnn" });
   } catch (error) {

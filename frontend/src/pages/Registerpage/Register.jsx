@@ -27,9 +27,9 @@ function Register() {
 
    {
     e.preventDefault()
-
-    try {
-        const response = await axios.post("http://localhost:8000/api/author/register",formdata)
+                 
+    try {                                   
+        const response = await axios.post("https://test-ndv4.onrender.com/api/author/register",formdata)
         console.log(response.data);
         
      if(response.status == 200 )

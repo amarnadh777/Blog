@@ -76,3 +76,32 @@ margin-top: 5%;
   border: 1px solid black;
   border-radius: 20px;
 }
+
+
+@media only screen and (max-width: 850px) {
+
+    .postes-grid
+    {
+        grid-template-columns: 50%  50%;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .login{
+        margin-top: 20%;
+    }
+    .loginbox
+    {
+        width: 90%;
+        
+        margin-left: 5%;
+    }
+    .login-second
+    {
+        width: 80%;
+    }
+    .login-create > button
+    {
+        width: 20em;
+    }
+
+}

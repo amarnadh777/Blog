@@ -12,12 +12,16 @@ import Sidebar from './Components/Sidebar/Sidebar';
 import Myprofile from './pages/Myprofile/Myprofile';
 import Mypostes from './pages/Mypostes/Mypostes';
 import Loading from './Components/Loading/Loading';
-
+import { Provider } from 'react-redux';
+import store from './Redux/store';
+import Editmypost from './pages/Editmypost/Editmypost';
 function App() {
 
 
  const [darkmode,setdarkmode] = useState(true)
  const [userLogined,setuserLogined] = useState(false)
+ const [authorDetails,setAuthorDetails] = useState("")
+
  
  const [opensidebar,setopenSidebar] = useState(true)
  useEffect(() =>
@@ -28,7 +32,7 @@ function App() {
       
       if(authorInfo)
       {
-        return setuserLogined(true)
+        return setuserLogined(true),setAuthorDetails(authorInfo)
       }
     }
     check()
@@ -37,9 +41,11 @@ function App() {
     <div className={darkmode ? `lightmode` : `darkmode` }>
   
 <Router>
-<DarkmodeContext.Provider value={{darkmode,setdarkmode,userLogined,setuserLogined,opensidebar,setopenSidebar}} >   
-
+<DarkmodeContext.Provider value={{darkmode,setdarkmode,userLogined,setuserLogined,opensidebar,setopenSidebar,authorDetails}} >   
+<Provider store={store}>  
+  
   <Routes>
+    
     
     
     <Route path='/' element={<Homepage></Homepage>}></Route>
@@ -49,10 +55,13 @@ function App() {
     <Route path='/createpost' element={<Createpost></Createpost>}></Route>
     <Route path='/myprofile/:authorId' element={<Myprofile></Myprofile>}></Route>
     <Route path='/mypost/:authorId' element={<Mypostes></Mypostes>}></Route>
+    <Route path='/editmypost/:postId' element={<Editmypost></Editmypost>}></Route>
+
 
 
  
   </Routes>
+  </Provider>
   </DarkmodeContext.Provider>
 
 </Router>
