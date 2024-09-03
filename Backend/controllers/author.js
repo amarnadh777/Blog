@@ -40,7 +40,7 @@ const register = async (req, res) => {
       message: "author successfully created",
       username: username,
       authorId: authorId,
-      profileurl: profileimage.url,
+      profileurl: profileimage.secure_url,
       authorname: authorname,
     });
   } catch (error) {
