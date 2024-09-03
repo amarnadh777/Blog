@@ -9,6 +9,7 @@ const cloudinaryconfig = require("../utils/cloudinary");
 const createpost = async (req, res) => {
   const { postTitle, postcontent, authorId } = req.body;
   try {
+
     const findauthor = await author.findOne({ authorId: authorId });
 
     const authorname = findauthor.authorname;
@@ -17,7 +18,8 @@ const createpost = async (req, res) => {
     const createdat = Date.now();
     const postId = randomUUID();
     const postimg = await cloudinary.uploader.upload(req.file.path);
-    const postimgurl = postimg.url;
+     console.log(postimg)
+   const postimgurl = postimg.secure_url;
     const newpost = new post({
       postTitle: postTitle,
       postcontent: postcontent,
@@ -30,7 +32,8 @@ const createpost = async (req, res) => {
       authorProfileurl: authorProfileurl,
     });
     const respoose = await newpost.save();
-    res.status(200).json(respoose);
+   res.status(200).json(respoose);
+   res.end()
   } catch (error) {
     console.log(error);
   }
