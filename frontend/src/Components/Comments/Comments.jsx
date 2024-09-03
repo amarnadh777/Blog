@@ -30,7 +30,7 @@ function Comments() {
       data
     );
     if (response.data) {
-      window.location.reload();
+       navigate("/")
     }
   };
 
