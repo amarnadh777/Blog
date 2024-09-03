@@ -26,7 +26,7 @@ function Postdetailed() {
 
         const response = await axios.get(`https://test-ndv4.onrender.com/api/post/getpostbyid/${postId}`)
 
-
+        console.log("🎵🎶🎵🎶🎵🎶",response)
         if(response.status == 200)
         {
           setloading(false)
