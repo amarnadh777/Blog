@@ -45,6 +45,7 @@ function Postdetailed() {
   
   return (
     <div>
+      
       <Navbar></Navbar>
       <Sidebar></Sidebar>
      {loading && <><Loading></Loading></>}

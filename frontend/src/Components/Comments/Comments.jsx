@@ -26,7 +26,7 @@ function Comments() {
       commentText: commentText,
     };
     const response = await axios.post(
-      "http://192.168.1.3:8000/api/post/addcomment",
+      "https://test-ndv4.onrender.com/api/post/addcomment",
       data
     );
     if (response.data) {
