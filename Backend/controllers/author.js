@@ -32,7 +32,7 @@ const register = async (req, res) => {
       authorname: authorname,
       username: username,
       password: hashPassword,
-      profileurl: profileimage.url,
+      profileurl: profileimage.secure_url,
     });
     await newAuhor.save();
 
@@ -90,14 +90,14 @@ const editAuthor = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(password, salt);
     const profileimage = await cloudinary.uploader.upload(req.file.path);
-    console.log(profileimage.url);
+
     const findauthor = await author.findOneAndUpdate(
       { authorId: authorId },
       {
         username: username,
         authoname: authoname,
         password: hashPassword,
-        profileurl: profileimage.url,
+        profileurl: profileimage.secure_url,
       }
     );
     if (!findauthor) {
