@@ -8,7 +8,6 @@
 const reducer = (state = initalStates , action ) =>
 { 
 
-    console.log("actions ",action);
     
     switch (action.type)
     {

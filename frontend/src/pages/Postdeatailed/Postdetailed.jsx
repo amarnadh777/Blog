@@ -1,8 +1,8 @@
 import React, { useEffect ,useState} from "react";
 
 import "./Postdetailed.css";
-import profiepic from "./p.png";
-import postimg from "./Rectangle 39.png";
+
+
 import { useParams } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import axios from "axios";
@@ -20,7 +20,7 @@ function Postdetailed() {
     
     
   
-    return async() => {
+    const getPostDetails =  async() => {
       try {
         setloading(true)
 
@@ -40,6 +40,7 @@ function Postdetailed() {
      
 
     }
+    getPostDetails()
   }, [])
   
   

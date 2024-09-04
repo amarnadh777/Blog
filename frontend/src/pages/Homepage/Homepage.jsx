@@ -17,7 +17,7 @@ function Homepage() {
   const [category, setcategory] = useState("");
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
-  console.log(state, "state from redux");
+ 
 
   useEffect(() => {
     const fetchpost = async () => {
@@ -51,7 +51,7 @@ function Homepage() {
     };
     check();
   }, []);
-  console.log("categorut", category);
+  
   return (
     <div
       

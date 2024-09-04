@@ -4,7 +4,7 @@ function Loading() {
   return (
     <div className='Loader'>
     
-    <div class="lds-hourglass"></div>
+    <div className="lds-hourglass"></div>
     </div>
   )
 }

@@ -51,8 +51,8 @@ function Postes({ data }) {
           const createdat =
             date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
           return (
-                    <>
-            <div className={darkmode ? `postcard` : `darmode-postcard`}>
+                 
+            <div  key={e.postId} className={darkmode ? `postcard` : `darmode-postcard`} >
               <Link to={`/postdetails/${e.postId}`} className="Link">
                 <div className="postcard-img">
                   <img src={e.postimgurl} alt="" />
@@ -96,7 +96,7 @@ function Postes({ data }) {
             </div>
          
             
-            </>
+        
           );
         })}
       </div>

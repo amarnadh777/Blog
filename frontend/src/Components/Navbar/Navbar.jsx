@@ -17,7 +17,7 @@ function Navbar() {
    setdarkmode(!darkmode)
 
  }
- console.log("dark",darkmode);
+
  const sidebarOpen = () =>
  {
    return setopenSidebar(!opensidebar)
