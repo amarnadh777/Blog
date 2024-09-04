@@ -12,12 +12,14 @@ function Comments() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    return async () => {
+    const getpostcomment =  async () => {
       const response = await axios.get(
         `https://test-ndv4.onrender.com/api/post/getpostcomment/${params.postId}`
       );
       setcomment(response.data.data);
     };
+    getpostcomment()
+    
   }, []);
   const addcomment = async () => {
     const data = {
@@ -30,7 +32,7 @@ function Comments() {
       data
     );
     if (response.data) {
-       navigate("/")
+       window.location.reload()
     }
   };
 
